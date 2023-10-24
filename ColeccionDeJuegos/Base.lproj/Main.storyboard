@@ -39,7 +39,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="LqK-sq-OXJ" id="uAs-az-CXa"/>
-                        <segue destination="G4x-08-qjI" kind="show" id="hGC-oL-4bF"/>
+                        <segue destination="G4x-08-qjI" kind="show" identifier="juegoSegue" id="hGC-oL-4bF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -50,23 +50,23 @@
         <scene sceneID="5zH-2E-e5i">
             <objects>
                 <viewController id="G4x-08-qjI" customClass="JuegosViewController" customModule="ColeccionDeJuegos" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="faG-gL-KYt">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="faG-gL-KYt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wa1-lU-STP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wa1-lU-STP">
                                 <rect key="frame" x="67" y="120" width="280" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="7Rw-Lc-dh4"/>
                                     <constraint firstAttribute="height" constant="150" id="reL-1V-cyY"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingrese Titulo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r0c-qJ-OnL">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingrese Titulo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r0c-qJ-OnL">
                                 <rect key="frame" x="250" y="290" width="97" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJe-kp-X1F">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJe-kp-X1F">
                                 <rect key="frame" x="169" y="344" width="76" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Agregar"/>
@@ -74,13 +74,23 @@
                                     <action selector="agregarTapped:" destination="G4x-08-qjI" eventType="touchUpInside" id="zKL-a7-1gn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEq-Qg-b3j">
+                                <rect key="frame" x="174" y="390" width="76" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Eliminar"/>
+                                <connections>
+                                    <action selector="eliminarTapped:" destination="G4x-08-qjI" eventType="touchUpInside" id="tPz-nt-POv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oZk-pm-yxU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="r0c-qJ-OnL" firstAttribute="top" secondItem="wa1-lU-STP" secondAttribute="bottom" constant="20" id="01B-LZ-7uC"/>
+                            <constraint firstItem="rEq-Qg-b3j" firstAttribute="centerX" secondItem="faG-gL-KYt" secondAttribute="centerX" id="1MC-Dw-1pP"/>
                             <constraint firstItem="FJe-kp-X1F" firstAttribute="centerX" secondItem="faG-gL-KYt" secondAttribute="centerX" id="3pJ-My-FUv"/>
                             <constraint firstItem="wa1-lU-STP" firstAttribute="centerX" secondItem="faG-gL-KYt" secondAttribute="centerX" id="7OQ-vC-Z2y"/>
+                            <constraint firstItem="rEq-Qg-b3j" firstAttribute="top" secondItem="FJe-kp-X1F" secondAttribute="bottom" constant="15" id="C5y-v9-qWS"/>
                             <constraint firstItem="wa1-lU-STP" firstAttribute="width" secondItem="r0c-qJ-OnL" secondAttribute="width" multiplier="2.8866" id="NGw-C4-RCE"/>
                             <constraint firstItem="oZk-pm-yxU" firstAttribute="trailing" secondItem="r0c-qJ-OnL" secondAttribute="trailing" constant="67" id="Qz7-Dk-WvT"/>
                             <constraint firstItem="FJe-kp-X1F" firstAttribute="top" secondItem="r0c-qJ-OnL" secondAttribute="bottom" constant="20" id="eiK-As-vO9"/>
@@ -103,6 +113,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="agregarActualizarBoton" destination="FJe-kp-X1F" id="o9y-jO-fcS"/>
+                        <outlet property="eliminarBoton" destination="rEq-Qg-b3j" id="V5u-yS-03e"/>
                         <outlet property="imageView" destination="wa1-lU-STP" id="m9Q-zo-taR"/>
                         <outlet property="tituloTextField" destination="r0c-qJ-OnL" id="lcu-Tk-LmA"/>
                     </connections>
